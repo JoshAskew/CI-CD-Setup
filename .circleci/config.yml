@@ -31,11 +31,11 @@ workflows:
     jobs:
       - start-server
       - cypress/run:
-        name: run-component-tests
-        commmand: npx cypress run  --component
+          name: run-component-tests
+          commmand: npx cypress run  --component
       - deploy-to-staging:
-        requires:
-          - run-component-tests
+          requires:
+            - run-component-tests
           filters:
             branches:
               only: main
