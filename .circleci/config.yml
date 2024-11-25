@@ -6,7 +6,7 @@ orbs:
 jobs:
   start-server:
     docker:
-      - image: cypress/base:current
+      - image: cypress/base:latest
     steps:
       - checkout
       - run:
@@ -32,8 +32,8 @@ workflows:
       - start-server
       - cypress/run:
         name: run-component-tests
-        commmand: npm cypress run  --component
-      -deploy-to-staging:
+        commmand: npx cypress run  --component
+      - deploy-to-staging:
         requires:
           - run-component-tests
           filters:
