@@ -48,7 +48,8 @@ workflows:
               only: main
       - hold:
           type: approval
-          requires: deploy-to-render-staging
+          requires: 
+            - deploy-to-render-staging
       - deploy-to-production:
           requires:
             - hold
